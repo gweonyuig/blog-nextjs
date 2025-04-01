@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 24px;
+  border-bottom: 1px solid var(--foreground);
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logoImage {
+  border-radius: 50%;
+  border: 2px solid var(--primary-green);
+}
+.logoText {
+  color: var(--primary-green);
+}
