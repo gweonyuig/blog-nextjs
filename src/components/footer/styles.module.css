@@ -1,0 +1,28 @@
+.footer {
+  background-color: #e46f15;
+  border-top: 1px solid var(--foreground);
+  text-align: center;
+}
+.footerContent {
+  max-width: 800px;
+  margin: 24px auto;
+}
+.socialIcons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin-top: 18px;
+}
+.underline {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #b7b7b7;
+  font-size: 12px;
+  width: 100%;
+  padding: 2px 12px;
+}
+.underline a {
+  color: #b7b7b7;
+  text-decoration: none;
+}
