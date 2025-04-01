@@ -1,0 +1,8 @@
+.profileImg {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.description {
+  color: rgb(0, 0, 0);
+}
