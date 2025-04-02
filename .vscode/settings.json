@@ -1,6 +1,7 @@
 {
   "eslint.enable": true,
   "editor.codeActionsOnSave": {
+    // lint error fix
     "source.fixAll.eslint": true,
     "source.addMissingImports": "explicit"
   },
