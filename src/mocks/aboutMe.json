@@ -1,0 +1,34 @@
+{
+  "aboutMe": [
+    {
+      "title": "Name",
+      "description": "권유익",
+      "iconImg": "/icons/icon_name.svg"
+    },
+    {
+      "title": "Phone",
+      "description": "010-1234-5678",
+      "iconImg": "/icons/icon_phone.svg"
+    },
+    {
+      "title": "Email",
+      "description": "gweonyuig@gmail.com",
+      "iconImg": "/icons/icon_email.svg"
+    },
+    {
+      "title": "Birthday",
+      "description": "1997-08-01",
+      "iconImg": "/icons/icon_calendar.svg"
+    },
+    {
+      "title": "Location",
+      "description": "Cheonan, South Korea",
+      "iconImg": "/icons/icon_location.svg"
+    },
+    {
+      "title": "University",
+      "description": "Sunmoon University",
+      "iconImg": "/icons/icon_univer.svg"
+    }
+  ]
+}
