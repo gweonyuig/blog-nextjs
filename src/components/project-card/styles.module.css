@@ -1,0 +1,12 @@
+.main {
+  display: flex;
+  gap: 12px;
+}
+.projectImg {
+  border-radius: 8px;
+}
+.projectInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
