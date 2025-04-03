@@ -5,6 +5,9 @@
   gap: 20px;
   max-width: 1500px;
 }
+.title {
+  color: var(--primary-green);
+}
 .items {
   display: flex;
   padding: 20px 0;

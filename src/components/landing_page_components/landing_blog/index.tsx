@@ -69,12 +69,35 @@ const LandingBlog = () => {
 
   return (
     <div className={styles.main}>
-      <h1>Blog</h1>
+      <h1 className={styles.title}>Blog</h1>
       <div className={styles.container}>
         <div className={styles.categories}>
-          <h2 onClick={() => handleCategoryClick("react")}>React</h2>
-          <h2 onClick={() => handleCategoryClick("typescript")}>Typescript</h2>
-          <h2 onClick={() => handleCategoryClick("setting")}>Setting</h2>
+          <h2
+            className={
+              category === "react" ? styles.activeCategory : styles.category
+            }
+            onClick={() => handleCategoryClick("react")}
+          >
+            React
+          </h2>
+          <h2
+            className={
+              category === "typescript"
+                ? styles.activeCategory
+                : styles.category
+            }
+            onClick={() => handleCategoryClick("typescript")}
+          >
+            Typescript
+          </h2>
+          <h2
+            className={
+              category === "setting" ? styles.activeCategory : styles.category
+            }
+            onClick={() => handleCategoryClick("setting")}
+          >
+            Setting
+          </h2>
         </div>
         <div className={styles.items}>
           {!data ? (
