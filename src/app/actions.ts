@@ -9,3 +9,8 @@ export const getProjects = async () => {
   const response = await import("@/mocks/projects.json");
   return response.default;
 };
+
+export const getBlogs = async () => {
+  const response = await import("@/mocks/post.json");
+  return response.default;
+};
