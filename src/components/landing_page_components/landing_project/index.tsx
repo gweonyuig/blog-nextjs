@@ -10,7 +10,7 @@ const LandingProject = async () => {
   return (
     <div className={styles.main}>
       <div>
-        <h1>Project</h1>
+        <h1 className={styles.title}>Project</h1>
       </div>
       <div className={styles.items}>
         {projects.map((item, key) => (
