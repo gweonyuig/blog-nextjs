@@ -1,11 +1,13 @@
 .main {
-  padding: 25px 100px 0 100px;
+  padding: 100px 100px 0 100px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  max-width: 1500px;
 }
 .items {
   display: flex;
+  padding: 20px 0;
   gap: 20px;
   overflow-x: scroll;
 }
