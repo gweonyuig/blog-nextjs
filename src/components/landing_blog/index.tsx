@@ -65,8 +65,8 @@ const LandingBlog = () => {
                 <Link href={`/blog/${item.id}`}>
                   <h2>{item.title}</h2>
                   <p>{item.description}</p>
-                  <p>{item.date}</p>
                 </Link>
+                <p>{item.date}</p>
               </div>
             ))
           )}
