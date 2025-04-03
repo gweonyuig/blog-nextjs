@@ -5,6 +5,9 @@
   max-width: 1500px;
   gap: 12px;
 }
+.title {
+  color: var(--primary-green);
+}
 .container {
   display: flex;
   flex-direction: column;
@@ -14,8 +17,12 @@
   padding: 25px 0;
   gap: 20px;
 }
-.categories h2 {
+.category {
   cursor: pointer;
+}
+.activeCategory {
+  color: #e46f15;
+  font-weight: bold;
 }
 .items {
   display: flex;
