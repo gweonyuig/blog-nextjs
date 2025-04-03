@@ -14,6 +14,9 @@
   padding: 25px 0;
   gap: 20px;
 }
+.categories h2 {
+  cursor: pointer;
+}
 .items {
   display: flex;
   flex-direction: column;
@@ -37,6 +40,13 @@
 }
 .arrowButton:hover {
   color: #fff;
+}
+.disabled {
+  color: #000;
+}
+.disabled:hover {
+  color: #000;
+  cursor: default;
 }
 .activePage {
   margin: 12px 8px;

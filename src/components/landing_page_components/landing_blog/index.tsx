@@ -98,9 +98,12 @@ const LandingBlog = () => {
               {totalPages > 1 && (
                 <div className={styles.pagination}>
                   <div
-                    onClick={() => handlePageChange(currentPage - 1)}
-                    disabled={currentPage === 1}
-                    className={styles.arrowButton}
+                    onClick={
+                      currentPage > 1
+                        ? () => handlePageChange(currentPage - 1)
+                        : undefined
+                    }
+                    className={`${styles.arrowButton} ${currentPage === 1 ? styles.disabled : ""}`}
                   >
                     이전
                   </div>
@@ -122,9 +125,12 @@ const LandingBlog = () => {
                   )}
 
                   <div
-                    onClick={() => handlePageChange(currentPage + 1)}
-                    disabled={currentPage === totalPages}
-                    className={styles.arrowButton}
+                    onClick={
+                      currentPage < totalPages
+                        ? () => handlePageChange(currentPage + 1)
+                        : undefined
+                    }
+                    className={`${styles.arrowButton} ${currentPage === totalPages ? styles.disabled : ""}`}
                   >
                     다음
                   </div>
