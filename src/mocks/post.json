@@ -1,0 +1,77 @@
+{
+  "react": {
+    "title": "React",
+    "post": [
+      {
+        "id": 1,
+        "title": "React",
+        "description": "React is a JavaScript library for building user interfaces. It allows developers to create large web applications that can change data, without reloading the page. Its key feature is the ability to build components that manage their own state, making it easy to create interactive UIs.",
+        "date": "2023-10-01"
+      },
+      {
+        "id": 2,
+        "title": "React",
+        "description": "React is a JavaScript library for building user interfaces. It allows developers to create large web applications that can change data, without reloading the page. Its key feature is the ability to build components that manage their own state, making it easy to create interactive UIs.",
+        "date": "2023-10-01"
+      },
+      {
+        "id": 3,
+        "title": "React",
+        "description": "React is a JavaScript library for building user interfaces. It allows developers to create large web applications that can change data, without reloading the page. Its key feature is the ability to build components that manage their own state, making it easy to create interactive UIs.",
+        "date": "2023-10-01"
+      },
+      {
+        "id": 4,
+        "title": "React",
+        "description": "React is a JavaScript library for building user interfaces. It allows developers to create large web applications that can change data, without reloading the page. Its key feature is the ability to build components that manage their own state, making it easy to create interactive UIs.",
+        "date": "2023-10-01"
+      }
+    ]
+  },
+  "typescript": {
+    "title": "TypeScript",
+    "post": [
+      {
+        "id": 1,
+        "title": "TypeScript",
+        "description": "TypeScript is a superset of JavaScript that adds static typing to the language. It helps developers catch errors early in the development process and provides better tooling and IDE support. TypeScript is widely used in large codebases and is the preferred language for many modern web applications.",
+        "date": "2023-10-01"
+      },
+      {
+        "id": 2,
+        "title": "TypeScript",
+        "description": "TypeScript is a superset of JavaScript that adds static typing to the language. It helps developers catch errors early in the development process and provides better tooling and IDE support. TypeScript is widely used in large codebases and is the preferred language for many modern web applications.",
+        "date": "2023-10-01"
+      },
+      {
+        "id": 3,
+        "title": "TypeScript",
+        "description": "TypeScript is a superset of JavaScript that adds static typing to the language. It helps developers catch errors early in the development process and provides better tooling and IDE support. TypeScript is widely used in large codebases and is the preferred language for many modern web applications.",
+        "date": "2023-10-01"
+      },
+      {
+        "id": 4,
+        "title": "TypeScript",
+        "description": "TypeScript is a superset of JavaScript that adds static typing to the language. It helps developers catch errors early in the development process and provides better tooling and IDE support. TypeScript is widely used in large codebases and is the preferred language for many modern web applications.",
+        "date": "2023-10-01"
+      }
+    ]
+  },
+  "setting": {
+    "title": "Setting",
+    "post": [
+      {
+        "id": 1,
+        "title": "Setting",
+        "description": "Setting is a crucial aspect of any application. It allows users to customize their experience and configure the application to suit their needs. Properly designed settings can greatly enhance user satisfaction and usability.",
+        "date": "2023-10-01"
+      },
+      {
+        "id": 2,
+        "title": "Setting",
+        "description": "Setting is a crucial aspect of any application. It allows users to customize their experience and configure the application to suit their needs. Properly designed settings can greatly enhance user satisfaction and usability.",
+        "date": "2023-10-01"
+      }
+    ]
+  }
+}

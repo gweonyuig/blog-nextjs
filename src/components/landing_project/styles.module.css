@@ -1,5 +1,8 @@
 .main {
-  padding: 50px 100px 0 100px;
+  padding: 25px 100px 0 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 .items {
   display: flex;
