@@ -1,0 +1,61 @@
+.main {
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  max-width: 1500px;
+  gap: 12px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.categories {
+  display: flex;
+  padding: 25px 0;
+  gap: 20px;
+}
+.categories h2 {
+  cursor: pointer;
+}
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.item {
+  border: 1px solid #fff;
+  padding: 12px;
+}
+.item p {
+  padding-top: 20px;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+.arrowButton {
+  margin: 12px 12px;
+  color: #6a6a6a;
+  cursor: pointer;
+}
+.arrowButton:hover {
+  color: #fff;
+}
+.disabled {
+  color: #000;
+}
+.disabled:hover {
+  color: #000;
+  cursor: default;
+}
+.activePage {
+  margin: 12px 8px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
+.pageButton {
+  margin: 12px 8px;
+  color: #6a6a6a;
+  cursor: pointer;
+}
