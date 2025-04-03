@@ -4,27 +4,39 @@
     "post": [
       {
         "id": 1,
-        "title": "React",
-        "description": "React is a JavaScript library for building user interfaces. It allows developers to create large web applications that can change data, without reloading the page. Its key feature is the ability to build components that manage their own state, making it easy to create interactive UIs.",
+        "title": "Getting Started with React: A Beginner's Guide",
+        "description": "Learn the fundamentals of React in this comprehensive guide for beginners. We'll cover component creation, state management, and how to build your first React application from scratch.",
         "date": "2023-10-01"
       },
       {
         "id": 2,
-        "title": "React",
-        "description": "React is a JavaScript library for building user interfaces. It allows developers to create large web applications that can change data, without reloading the page. Its key feature is the ability to build components that manage their own state, making it easy to create interactive UIs.",
-        "date": "2023-10-01"
+        "title": "Understanding React Hooks: useState and useEffect",
+        "description": "Dive deep into React Hooks and discover how they revolutionize state management in functional components. This post explains how to use useState and useEffect with practical examples and best practices.",
+        "date": "2023-10-15"
       },
       {
         "id": 3,
-        "title": "React",
-        "description": "React is a JavaScript library for building user interfaces. It allows developers to create large web applications that can change data, without reloading the page. Its key feature is the ability to build components that manage their own state, making it easy to create interactive UIs.",
-        "date": "2023-10-01"
+        "title": "Building Responsive UIs with React and CSS",
+        "description": "Explore techniques for creating beautiful, responsive user interfaces using React combined with modern CSS approaches. Learn about styled-components, CSS modules, and responsive design patterns for React applications.",
+        "date": "2023-10-22"
       },
       {
         "id": 4,
-        "title": "React",
-        "description": "React is a JavaScript library for building user interfaces. It allows developers to create large web applications that can change data, without reloading the page. Its key feature is the ability to build components that manage their own state, making it easy to create interactive UIs.",
-        "date": "2023-10-01"
+        "title": "Advanced React Patterns: Context API and Reducers",
+        "description": "Take your React skills to the next level by mastering the Context API and reducer patterns. This tutorial demonstrates how to manage global state efficiently without reaching for external libraries.",
+        "date": "2023-11-05"
+      },
+      {
+        "id": 5,
+        "title": "React Performance Optimization Techniques",
+        "description": "Learn how to identify and fix performance bottlenecks in your React applications. This post covers memo, useMemo, useCallback, and other optimization strategies to make your React apps lightning fast.",
+        "date": "2023-11-18"
+      },
+      {
+        "id": 6,
+        "title": "Server-Side Rendering with React and Next.js",
+        "description": "Discover the benefits of server-side rendering and how to implement it using Next.js with React. This comprehensive guide covers routing, data fetching, and deployment strategies for SSR applications.",
+        "date": "2023-12-01"
       }
     ]
   },
