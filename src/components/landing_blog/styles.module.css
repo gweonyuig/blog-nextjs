@@ -2,15 +2,16 @@
   padding: 100px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  max-width: 1500px;
+  gap: 12px;
 }
 .container {
   display: flex;
+  flex-direction: column;
 }
 .categories {
   display: flex;
-  flex-direction: column;
-  padding: 0 50px;
+  padding: 25px 0;
   gap: 20px;
 }
 .items {
@@ -24,4 +25,27 @@
 }
 .item p {
   padding-top: 20px;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+.arrowButton {
+  margin: 12px 12px;
+  color: #6a6a6a;
+  cursor: pointer;
+}
+.arrowButton:hover {
+  color: #fff;
+}
+.activePage {
+  margin: 12px 8px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
+.pageButton {
+  margin: 12px 8px;
+  color: #6a6a6a;
+  cursor: pointer;
 }
