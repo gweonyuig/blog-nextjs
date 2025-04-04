@@ -1,3 +1,6 @@
+/* 마크다운 스타일 임포트 */
+@import "../styles/markdown.css";
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

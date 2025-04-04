@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./page.module.css";
 import { getBlogs } from "@/app/actions";
+import MarkdownRenderer from "@/components/MarkdownRenderer";
+import "@/styles/markdown.css";
 
 // 반환 타입을 명시적으로 지정하는 것이 좋습니다
 const getPost = async (category: string, id: string) => {
@@ -46,7 +48,9 @@ const Page = async ({ params }: PageProps) => {
         <div>{post.date}</div>
         <div>{post.description}</div>
       </div>
-      <div className={styles.content}>{post.contents}</div>
+      <div className={styles.content}>
+        <MarkdownRenderer content={post.contents} />
+      </div>
     </div>
   );
 };
