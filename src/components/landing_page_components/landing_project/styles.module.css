@@ -14,3 +14,36 @@
   gap: 20px;
   overflow-x: scroll;
 }
+
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+  .main {
+    padding: 80px 60px 0 60px;
+    max-width: 100%;
+  }
+  .items {
+    gap: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    padding: 60px 40px 0 40px;
+  }
+  .items {
+    padding: 15px 0;
+    gap: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .main {
+    padding: 40px 20px 0 20px;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+  .items {
+    padding: 10px 0;
+  }
+}
