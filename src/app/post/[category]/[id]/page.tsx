@@ -26,15 +26,17 @@ const getPost = async (category: string, id: string) => {
 
 // Next.js의 페이지 컴포넌트 규칙에 맞게 수정하는 것이 좋습니다
 interface PageProps {
-  params: {
+  params: Promise<{
     category: string;
     id: string;
-  };
+  }>;
 }
 
 // Next.js 페이지 컴포넌트로 수정
 const Page = async ({ params }: PageProps) => {
-  const { category, id } = params;
+  // params를 await로 비동기 처리
+  // const resolvedParams = await params;
+  const { category, id } = await params;
   const post = await getPost(category, id);
 
   if (!post) {
