@@ -26,3 +26,48 @@
   width: 100%;
   max-width: 800px; /* 필요에 따라 조정 */
 }
+
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+  .main {
+    gap: 50px;
+    padding: 24px 16px;
+  }
+  .headerTitle {
+    font-size: 52px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .main {
+    flex-direction: column;
+    height: auto;
+    gap: 40px;
+  }
+  .headerTitle {
+    font-size: 46px;
+  }
+  .description {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 600px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .main {
+    padding: 20px 12px;
+    gap: 30px;
+  }
+  .headerTitle {
+    font-size: 38px;
+    margin-bottom: 24px;
+  }
+  .description {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .profileImage {
+    width: 150px;
+    height: 150px;
+  }
+}
