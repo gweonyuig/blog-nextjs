@@ -7,7 +7,7 @@
         "title": "Getting Started with React: A Beginner's Guide",
         "description": "Learn the fundamentals of React in this comprehensive guide for beginners. We'll cover component creation, state management, and how to build your first React application from scratch.",
         "date": "2023-10-01",
-        "contents": "React is a JavaScript library for building user interfaces. This guide will help you understand the core concepts of React, including components, props, and state. We'll walk through setting up your development environment and creating your first React app step by step."
+        "contents": "## Introduction to React\n\nReact is a JavaScript library for building user interfaces. This guide will help you understand the core concepts of React, including components, props, and state.\n\n### Setting Up Your Environment\n\nBefore we start, make sure you have [Node.js](https://nodejs.org/) installed. You can create a new React app using Create React App:\n\n```bash\nnpx create-react-app my-first-app\ncd my-first-app\nnpm start\n```\n\n### Your First Component\n\nHere's a simple React component:\n\n```jsx\nfunction Welcome() {\n  return <h1>Hello, React Developer!</h1>;\n}\n\nexport default Welcome;\n```\n\n> **Pro tip:** Components are the building blocks of React applications. They let you split the UI into independent, reusable pieces.\n\n### Managing State\n\nState allows React components to change their output over time in response to user actions, network responses, and anything else.\n\n![React State Flow Diagram](/images/state-flow.png)\n\nWe'll walk through more advanced concepts in the following sections."
       },
       {
         "id": 2,

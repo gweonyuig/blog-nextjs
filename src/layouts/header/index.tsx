@@ -6,7 +6,7 @@ import Link from "next/link";
 const Header = () => (
   <header className={styles.header}>
     <div className={styles.logo}>
-      <Link href="./">
+      <Link href="/">
         <Image
           src="/bualapha.png"
           alt="Logo"
