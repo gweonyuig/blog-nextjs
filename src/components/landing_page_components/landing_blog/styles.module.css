@@ -30,8 +30,25 @@
   gap: 20px;
 }
 .item {
-  border: 1px solid #fff;
-  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  text-wrap: normal;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  gap: 1rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+}
+.item:hover {
+  background-color: #282828;
 }
 .item p {
   padding-top: 20px;

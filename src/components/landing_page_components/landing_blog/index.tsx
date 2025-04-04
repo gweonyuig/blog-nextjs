@@ -109,7 +109,7 @@ const LandingBlog = () => {
                   key={key}
                   className={styles.item}
                 >
-                  <Link href={`/post/${item.id}`}>
+                  <Link href={`/post/${category}/${item.id}`}>
                     <h2>{item.title}</h2>
                     <p>{item.description}</p>
                   </Link>
