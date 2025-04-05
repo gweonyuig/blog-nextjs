@@ -1,4 +1,4 @@
-:root {
+:landing-blog {
   --hover-background: #e46f15;
   --allow-color: #e46f15;
   --disabled-color: #dddddd;
@@ -7,7 +7,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :landing-blog {
     --disabled-color: #1d1d1d;
   }
 }
