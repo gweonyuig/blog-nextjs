@@ -4,5 +4,5 @@
   align-items: center;
 }
 .description {
-  color: rgb(0, 0, 0);
+  color: var(--text-color);
 }

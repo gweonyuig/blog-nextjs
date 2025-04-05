@@ -19,7 +19,7 @@ const ProjectCard = (props: ProjectsProps) => (
         className={styles.projectImg}
         src={props.image}
         alt="no-image"
-        width={450}
+        width={350}
         height={250}
       />
     </Link>
