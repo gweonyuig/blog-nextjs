@@ -13,9 +13,10 @@ const LandingProject = async () => {
         <h1 className={styles.title}>Project</h1>
       </div>
       <div className={styles.items}>
-        {projects.map((item, key) => (
+        {projects.map((item) => (
           <ProjectCard
-            key={key}
+            key={item.id} // Changed key to id
+            id={item.id}
             title={item.title}
             description={item.description}
             image={item.image}
