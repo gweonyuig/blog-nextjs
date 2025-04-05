@@ -1,9 +1,9 @@
 .main {
-  padding: 100px;
+  padding: 100px 100px 50px 100px;
   display: flex;
   flex-direction: column;
-  max-width: 1500px;
   gap: 12px;
+  max-width: 1500px;
 }
 .title {
   color: var(--primary-green);
@@ -34,7 +34,7 @@
   flex-direction: column;
   padding: 2rem;
   text-wrap: normal;
-  max-width: 800px;
+  max-width: 1500px;
   width: 100%;
   margin: 0 auto;
   gap: 1rem;

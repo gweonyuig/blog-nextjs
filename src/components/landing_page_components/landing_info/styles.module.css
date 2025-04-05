@@ -2,7 +2,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(189, 208, 188);
+  /* background: linear-gradient(
+    215deg,
+    #8bc34a80 0%,
+    #ffaa33 50%,
+    #8bc34a80 100%
+  ); */
   padding: 32px 0;
   gap: 75px;
   width: 100%;
