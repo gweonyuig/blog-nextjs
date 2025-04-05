@@ -1,17 +1,3 @@
-:landing-blog {
-  --hover-background: #e46f15;
-  --allow-color: #e46f15;
-  --disabled-color: #dddddd;
-  --active-color: #e46f15;
-  --page-button-color: #6a6a6a;
-}
-
-@media (prefers-color-scheme: dark) {
-  :landing-blog {
-    --disabled-color: #1d1d1d;
-  }
-}
-
 .main {
   padding: 100px;
   display: flex;
