@@ -1,12 +1,46 @@
 .main {
   display: flex;
-  gap: 12px;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 8px;
+  padding: 12px;
+}
+.main:hover {
+  background-color: var(--hover-background);
 }
 .projectImg {
   border-radius: 8px;
+  width: 350px;
+  height: 250px;
 }
 .projectInfo {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 20px;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+  .projectImg {
+    border-radius: 8px;
+    width: 300px;
+    height: 225px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .projectImg {
+    border-radius: 8px;
+    width: 250px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .projectImg {
+    border-radius: 8px;
+    width: 200px;
+    height: 175px;
+  }
 }
