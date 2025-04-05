@@ -4,6 +4,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --text-color: #171717;
   --primary-green: #4fd700;
 }
 
@@ -11,6 +12,7 @@
   :root {
     --background: #171717;
     --foreground: #ededed;
+    --text-color: #ffffff;
   }
 }
 
