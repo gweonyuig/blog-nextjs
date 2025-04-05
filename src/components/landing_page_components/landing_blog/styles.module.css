@@ -48,7 +48,7 @@
   border: 1px solid var(--border-color);
 }
 .item:hover {
-  background-color: #282828;
+  background-color: var(--hover-background);
 }
 .item p {
   padding-top: 20px;
@@ -59,27 +59,27 @@
 }
 .arrowButton {
   margin: 12px 12px;
-  color: #6a6a6a;
+  color: var(--arrow-color);
   cursor: pointer;
 }
 .arrowButton:hover {
-  color: #fff;
+  color: var(--hover-background);
 }
 .disabled {
-  color: #000;
+  color: var(--disabled-color);
 }
 .disabled:hover {
-  color: #000;
+  color: var(--disabled-color);
   cursor: default;
 }
 .activePage {
   margin: 12px 8px;
   font-weight: bold;
-  color: #fff;
+  color: var(--active-color);
   cursor: pointer;
 }
 .pageButton {
   margin: 12px 8px;
-  color: #6a6a6a;
+  color: var(--page-button-color);
   cursor: pointer;
 }

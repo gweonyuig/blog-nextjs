@@ -4,13 +4,27 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --text-color: #171717;
   --primary-green: #4fd700;
+  /* landing-blog */
+  --hover-background: #e46f15;
+  --allow-color: #e46f15;
+  --disabled-color: #dddddd;
+  --active-color: #e46f15;
+  --page-button-color: #6a6a6a;
+  /* markdown */
+  --pre-code-background: #f5f5f5;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #171717;
     --foreground: #ededed;
+    --text-color: #ffffff;
+    /* landing-blog */
+    --disabled-color: #1d1d1d;
+    /* markdown */
+    --pre-code-background: #2d2d2d;
   }
 }
 
