@@ -4,6 +4,7 @@ import styles from "./styles.module.css";
 import Link from "next/link";
 
 interface ProjectsProps {
+  id: number; // Changed key to id
   title: string;
   description: string;
   image: string;
@@ -11,18 +12,26 @@ interface ProjectsProps {
 
 const ProjectCard = (props: ProjectsProps) => (
   <div className={styles.main}>
-    <Image
-      className={styles.projectImg}
-      src={props.image}
-      alt="no-image"
-      width={450}
-      height={250}
-    />
+    <Link href={`/project/${props.id}`}>
+      {" "}
+      {/* Updated key to id */}
+      <Image
+        className={styles.projectImg}
+        src={props.image}
+        alt="no-image"
+        width={450}
+        height={250}
+      />
+    </Link>
     <div className={styles.projectInfo}>
-      <div>
-        <h3 className={styles.projectTitle}>{props.title}</h3>
-        <p className={styles.projectDescription}>{props.description}</p>
-      </div>
+      <Link href={`/project/${props.id}`}>
+        {" "}
+        {/* Updated key to id */}
+        <div>
+          <h3 className={styles.projectTitle}>{props.title}</h3>
+          <p className={styles.projectDescription}>{props.description}</p>
+        </div>
+      </Link>
       <div className={styles.projectLink}>
         <Link href="https://github.com/gweonyuig">Github</Link>
       </div>
