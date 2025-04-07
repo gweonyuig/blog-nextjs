@@ -25,7 +25,7 @@ console.log('Hello, World!');
 2. Second item
 3. Third item
 
-\"name\": \"john doe\"
+\\"name\\": \\"John Doe\\"
 `;
 
 export default function MarkdownEditorPage() {
