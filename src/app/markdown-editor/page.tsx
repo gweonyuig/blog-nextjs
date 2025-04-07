@@ -23,11 +23,15 @@ console.log('Hello, World!');
 
 1. First item
 2. Second item
-3. Third item`;
+3. Third item
+
+\"name\": \"john doe\"
+`;
 
 export default function MarkdownEditorPage() {
   const [markdownText, setMarkdownText] = useState<string>("");
   const [isCopied, setIsCopied] = useState<boolean>(false);
+  const [isStringCopied, setIsStringCopied] = useState<boolean>(false);
   const [showGuide, setShowGuide] = useState<boolean>(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -59,6 +63,16 @@ export default function MarkdownEditorPage() {
 
   const toggleGuide = () => {
     setShowGuide(!showGuide);
+  };
+
+  const handleConvertAndCopy = () => {
+    if (markdownText) {
+      // Convert multiline text to a single line with \n escape sequences
+      const singleLineText = markdownText.replace(/\n/g, "\\n");
+      navigator.clipboard.writeText(singleLineText);
+      setIsStringCopied(true);
+      setTimeout(() => setIsStringCopied(false), 2000);
+    }
   };
 
   return (
@@ -93,6 +107,9 @@ export default function MarkdownEditorPage() {
                   </li>
                   <li>
                     <code>![대체텍스트](이미지URL)</code> - 이미지
+                  </li>
+                  <li>
+                    <code>\{'"'}</code> - 큰따옴표
                   </li>
                 </ul>
               </div>
@@ -151,6 +168,12 @@ export default function MarkdownEditorPage() {
                 className={`${styles.button} ${styles.copyButton}`}
               >
                 {isCopied ? "복사됨!" : "복사하기"}
+              </button>
+              <button
+                onClick={handleConvertAndCopy}
+                className={`${styles.button} ${styles.stringButton}`}
+              >
+                {isStringCopied ? "변환 복사됨!" : "문자열로 변환"}
               </button>
             </div>
           </div>
