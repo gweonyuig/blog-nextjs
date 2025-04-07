@@ -93,17 +93,17 @@
     "post": [
       {
         "id": 1,
-        "title": "TypeScript",
-        "description": "TypeScript is a superset of JavaScript that adds static typing to the language. It helps developers catch errors early in the development process and provides better tooling and IDE support. TypeScript is widely used in large codebases and is the preferred language for many modern web applications.",
-        "date": "2023-10-01",
-        "contents": "This article introduces the core features of TypeScript, including types, interfaces, and generics. We'll explore how TypeScript improves code quality and developer productivity through early error detection and enhanced IDE support."
+        "title": "배열 타입, 튜플 타입",
+        "description": "Array, Tuple types in TypeScript.",
+        "date": "2025-04-07",
+        "contents": "## 배열 타입\n\n배열 타입은 여러 개의 값을 저장할 수 있는 데이터 구조입니다. TypeScript에서는 배열을 정의할 때 다음과 같은 문법을 사용합니다.\n\n```typescript\n// 타입[]\nconst arr: {name: string, date: number}[] = [\n  {name: 'kim', date: 0801},\n  {name: 'lee', date: 0802},\n  {name: 'park', date: 0803}\n];\n\n// Array<타입>\nconst arr: Array<{name: string, date: number}> = [\n  {name: 'kim', date: 0801},\n  {name: 'lee', date: 0802},\n  {name: 'park', date: 0803}\n]; \n```\n\n## 튜플 타입\n\n튜플은 고정된 길이와 각 요소의 타입이 다른 배열입니다. TypeScript에서는 튜플을 다음과 같이 정의합니다.\n\n```typescript\n// 원소의 개수만큼 타입정의\nconst tuple: [string, number] = [\"park\", 1108];\n\n// 매개변수가 여러개일때 유용\nconst test = (id: number, user: [string, number]) => {\n  console.log(id, ...user);\n}\n\n// 튜플을 리턴하는 함수\nconst fetchData = (): [string, number] => {\n  return [\"lee\", 0803];\n}\n\n// 구조분해할당 가능\nconst [name, date] = fetchData();\n```\n\n> **Pro tip:** 튜플은 고정된 길이와 각 요소의 타입이 다를 때 유용하게 사용됩니다."
       },
       {
         "id": 2,
-        "title": "TypeScript",
-        "description": "TypeScript is a superset of JavaScript that adds static typing to the language. It helps developers catch errors early in the development process and provides better tooling and IDE support. TypeScript is widely used in large codebases and is the preferred language for many modern web applications.",
-        "date": "2023-10-01",
-        "contents": "Learn about advanced TypeScript concepts including type guards, conditional types, and mapped types. This post demonstrates how to leverage TypeScript's type system to create more robust and maintainable code in complex applications."
+        "title": "TypeScript의 Interface와 Type 비교",
+        "description": "TypeScript에서 타입을 정의하는 두 가지 주요 방법인 `interface`와 `type`의 차이점",
+        "date": "2025-04-07",
+        "contents": "## 1. 확장 (상속)\n\n두 방식 모두 확장이 가능하지만 문법에 차이가 있습니다.\n\n```typescript\n// interface는 extends 키워드 사용\ninterface Animal { \n  name: string; \n} \n\ninterface Dog extends Animal { \n  breed: string; \n}\n\n// type은 & 연산자 사용 \ntype Animal = { \n  name: string \n}; \n\ntype Dog = Animal & { \n  breed: string \n};\n```\n\n## 2. 선언 병합 (Declaration Merging)\n\n```typescript\n// interface는 동일 이름으로 여러 번 선언하면 자동으로 병합\ninterface Person { \n  name: string; \n} \n\ninterface Person { \n  age: number; \n}\n```\n\n결과적으로 Person은 `{ name: string; age: number }` 타입이 됩니다.\n\ntype은 이름 중복 선언이 불가능합니다:\n\n```typescript\ntype User = { name: string };\n// 아래 코드는 오류 발생\n// type User = { age: number }; // Error: Duplicate identifier 'User'\n```\n\n## 3. 유니언/교차 타입 가능 여부\n\n```typescript\n// type은 기본 타입과 유니언/교차 타입을 쉽게 조합 가능\ntype Status = \"success\" | \"error\";  // 가능\ntype Info = { name: string } | { age: number };  // 가능\n\n// interface는 유니언 타입을 직접 표현 불가\n// interface Status = \"success\" | \"error\";  // 오류 발생\n```\n\n## 4. 함수 타입 정의\n\n```typescript\n// type은 함수 타입 정의가 직관적\ntype Greet = (name: string) => string;  // 간결한 문법\n\n// interface도 가능하지만 문법이 덜 직관적\ninterface Greet { \n  (name: string): string;\n}\n```\n\n## 결론\n\n* 대부분의 **객체 타입 정의**에는 `interface`를 써도 충분합니다.\n* **복잡한 타입 조합(유니언, 튜플, 함수 타입 등)** 이 필요하면 `type`이 더 유연합니다.\n* **객체 지향 프로그래밍** 스타일을 선호한다면 `interface`가 적합합니다.\n* **함수형 프로그래밍**이나 **복잡한 타입 조합**이 필요하면 `type`이 유리합니다.\n* 실제 프로젝트에서는 두 가지를 상황에 맞게 혼용하는 경우가 많습니다."
       },
       {
         "id": 3,
