@@ -337,3 +337,57 @@
     color: #9ca3af;
   }
 }
+
+/* 반응형 레이아웃 */
+@media (max-width: 768px) {
+  .editorContainer {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .panel {
+    margin-bottom: 1.5rem;
+  }
+
+  .textarea,
+  .previewContainer {
+    height: 50vh; /* 세로 모드에서는 높이를 줄여서 보기 편하게 */
+  }
+
+  .guideColumns {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+    margin-bottom: 30px;
+  }
+}
+
+/* 더 작은 모바일 화면에 대한 추가 조정 */
+@media (max-width: 480px) {
+  .panelHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .buttonGroup {
+    margin-top: 0.5rem;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .button {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .textarea,
+  .previewContainer {
+    height: 40vh;
+  }
+}
