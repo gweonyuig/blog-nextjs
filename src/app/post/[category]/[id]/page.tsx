@@ -6,22 +6,38 @@ import "@/styles/markdown.css";
 
 // 반환 타입을 명시적으로 지정하는 것이 좋습니다
 const getPost = async (category: string, id: string) => {
-  const blogData = await getBlogs();
-  // 문자열 category가 blogData의 키로 존재하는지 확인
-  if (!blogData[category as keyof typeof blogData]) {
-    return null;
-  }
-  // id를 숫자로 변환하여 비교
-  const numId = parseInt(id, 10);
-  // NaN 체크가 필요합니다
-  if (isNaN(numId)) {
-    return null;
-  }
+  try {
+    const blogData = await getBlogs();
 
-  const post = blogData[category as keyof typeof blogData].post.find(
-    (item) => item.id === numId
-  );
-  return post;
+    // 데이터 구조 확인
+    if (!blogData.categories || !blogData.posts) {
+      return null;
+    }
+
+    // categories 배열에서 일치하는 카테고리 찾기
+    const categoryObj = blogData.categories.find(
+      (cat) => cat.key && cat.key.toLowerCase() === category.toLowerCase()
+    );
+
+    if (!categoryObj) {
+      return null;
+    }
+
+    // id를 숫자로 변환하여 비교
+    const numId = parseInt(id, 10);
+    if (isNaN(numId)) {
+      return null;
+    }
+
+    // posts 배열에서 카테고리ID와 포스트ID가 모두 일치하는 게시물 찾기
+    const post = blogData.posts.find(
+      (post) => post.id === numId && post.categoryId === categoryObj.id
+    );
+
+    return post;
+  } catch (error) {
+    throw error;
+  }
 };
 
 // Next.js의 페이지 컴포넌트 규칙에 맞게 수정하는 것이 좋습니다
@@ -35,23 +51,27 @@ interface PageProps {
 // Next.js 페이지 컴포넌트로 수정
 const Page = async ({ params }: PageProps) => {
   // params를 await로 비동기 처리
-  // const resolvedParams = await params;
   const { category, id } = await params;
   const post = await getPost(category, id);
 
   if (!post) {
-    return <div>Post not found</div>;
+    return <div className={styles.main}>Post not found</div>;
   }
 
+  // post 내용 조건부 렌더링으로 안전하게 처리
   return (
     <div className={styles.main}>
       <div className={styles.intro}>
         <h1>{post.title}</h1>
-        <div>{post.date}</div>
-        <div>{post.description}</div>
+        {post.date && <div>{post.date}</div>}
+        {post.description && <div>{post.description}</div>}
       </div>
       <div className={styles.content}>
-        <MarkdownRenderer content={post.contents} />
+        {post.contents ? (
+          <MarkdownRenderer content={post.contents} />
+        ) : (
+          <div>내용이 없습니다</div>
+        )}
       </div>
     </div>
   );
