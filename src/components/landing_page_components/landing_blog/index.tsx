@@ -141,9 +141,9 @@ const LandingBlog = () => {
                 >
                   <Link href={`/post/${post.category.key}/${post.id}`}>
                     <h2>{post.title}</h2>
-                    <p>{post.description}</p>
+                    <div>{post.description}</div>
                   </Link>
-                  <p>{formatDate(post.date)}</p>
+                  <p className={styles.date}>{formatDate(post.date)}</p>
                 </div>
               ))}
 
