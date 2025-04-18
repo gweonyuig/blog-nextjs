@@ -3,7 +3,7 @@ import { useState, FormEvent } from "react";
 import { GetServerSideProps } from "next";
 import { PrismaClient } from "@prisma/client";
 import { useRouter } from "next/router";
-import styles from "../../styles/CreatePost.module.css";
+import styles from "./CreatePost.module.css";
 
 interface CreatePostProps {
   categories: {
