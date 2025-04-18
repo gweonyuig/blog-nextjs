@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+  output   = "../node_modules/.prisma/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+// AboutMe 모델
+model AboutMeItem {
+  id          Int     @id @default(autoincrement())
+  title       String  // 항목 제목 (예: "Name", "Phone" 등)
+  description String  // 항목 내용 
+  iconImg     String  // 아이콘 이미지 경로
+
+  @@map("about_me_items")
+}
+
+
+// 카테고리 모델
+model Category {
+  id    Int     @id @default(autoincrement())
+  key   String  @unique // "react", "typescript", "setting" 등
+  title String  // 카테고리 표시 이름
+  posts Post[]  // 카테고리에 속한 포스트들
+
+  @@map("categories")
+}
+
+// 포스트 모델
+model Post {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?  // 선택적 필드
+  date        DateTime // ISO 날짜 형식으로 저장
+  contents    String   @db.Text // 긴 텍스트 내용을 위한 Text 타입
+  
+  // 카테고리 관계
+  categoryId  Int
+  category    Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@map("posts")
+}
+
+
+// 프로젝트 모델
+model Project {
+  id          Int     @id @default(autoincrement())
+  title       String
+  description String?
+  image       String  // 이미지 경로
+  contents    String  @db.Text  // 긴 텍스트 내용을 위한 Text 타입
+
+  @@map("projects")
+}

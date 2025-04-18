@@ -7,7 +7,7 @@ import "@/styles/markdown.css";
 // 반환 타입을 명시적으로 지정하는 것이 좋습니다
 const getPost = async (id: string) => {
   const projectData = await getProjects();
-  // 문자열 category가 blogData의 키로 존재하는지 확인
+  // 프로젝트 데이터가 존재하는지 확인
   if (!projectData) {
     return null;
   }
@@ -18,7 +18,8 @@ const getPost = async (id: string) => {
     return null;
   }
 
-  const post = projectData.projects.find((item) => item.id === numId);
+  // projectData가 이미 배열이므로 직접 find 메소드 사용
+  const post = projectData.find((item) => item.id === numId);
   return post;
 };
 
