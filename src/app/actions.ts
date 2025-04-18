@@ -14,7 +14,6 @@ export async function getProjects() {
 
     return projects;
   } catch (error) {
-    // console.error("프로젝트 데이터를 가져오는 중 오류 발생:", error);
     throw error;
   } finally {
     await prisma.$disconnect();
@@ -51,10 +50,6 @@ export async function getBlogs() {
       posts: formattedPosts,
     };
   } catch (error) {
-    // console.error(
-    //   "데이터베이스에서 블로그 데이터를 가져오는 중 오류 발생:",
-    //   error
-    // );
     throw error;
   } finally {
     await prisma.$disconnect();
@@ -71,8 +66,6 @@ export async function getAboutMe() {
 
     return aboutMeItems;
   } catch (error) {
-    // console.error("AboutMe 데이터를 가져오는 중 오류 발생:", error);
-    // 오류 발생 시 빈 배열 반환
     throw error;
   } finally {
     await prisma.$disconnect();
