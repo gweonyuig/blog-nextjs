@@ -12,7 +12,7 @@
     "db:seed": "prisma db seed",
     "db:push": "prisma db push",
     "db:studio": "prisma studio",
-    "db:setup": "npm run db:push && npm run db:generate && npm run db:seed"
+    "db:setup": "npm run db:push && npm run db:generate"
   },
   "dependencies": {
     "@prisma/client": "^6.6.0",
