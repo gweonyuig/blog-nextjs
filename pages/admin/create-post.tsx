@@ -142,8 +142,8 @@ export default function CreatePost({ categories }: CreatePostProps) {
         <div className={styles.formGroup}>
           <button
             type="submit"
-            disabled={isSubmitting}
-            className={styles.button}
+            disabled={isSubmitting} // 폼 제출 중일 때 버튼을 비활성화함
+            className={styles.button} // CSS 모듈에서 가져온 버튼 스타일 적용
           >
             {isSubmitting ? "저장 중..." : "포스트 저장"}
           </button>
@@ -154,24 +154,26 @@ export default function CreatePost({ categories }: CreatePostProps) {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const prisma = new PrismaClient();
+  // 서버 사이드에서 실행되는 데이터 페칭 함수 선언
+  const prisma = new PrismaClient(); // Prisma 데이터베이스 클라이언트 인스턴스 생성
 
   try {
-    const categories = await prisma.category.findMany();
+    const categories = await prisma.category.findMany(); // 데이터베이스에서 모든 카테고리 목록 조회
 
     return {
       props: {
-        categories: JSON.parse(JSON.stringify(categories)),
+        categories: JSON.parse(JSON.stringify(categories)), // Date 객체 등을 포함한 데이터를 직렬화하기 위해 JSON 변환 후 다시 파싱
       },
     };
   } catch {
+    // 데이터베이스 조회 중 오류 발생 시 처리 (매개변수 없이 catch 블록 사용)
     // 매개변수 없이 catch 블록 사용
     return {
       props: {
-        categories: [],
+        categories: [], // 오류 발생 시 빈 카테고리 배열 반환하여 페이지가 에러 없이 렌더링되도록 함
       },
     };
   } finally {
-    await prisma.$disconnect();
+    await prisma.$disconnect(); // Prisma 클라이언트 연결 해제
   }
 };
