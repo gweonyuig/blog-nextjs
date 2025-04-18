@@ -3,21 +3,9 @@ import Image from "next/image";
 import ProfileInfo from "../profile_info";
 import { getAboutMe } from "@/app/actions";
 
-// 타입 정의 추가
-interface AboutMeItem {
-  title: string;
-  description: string;
-  iconImg: string;
-}
-
-interface AboutMeResponse {
-  aboutMe: AboutMeItem[];
-}
-
 const LandingMain = async () => {
-  // 데이터 구조에 맞게 접근을 수정
-  const response: AboutMeResponse = await getAboutMe();
-  const aboutMeItems = response.aboutMe;
+  // PostgreSQL에서 데이터 가져오기
+  const aboutMeItems = await getAboutMe();
 
   return (
     <main className={styles.main}>
@@ -31,9 +19,9 @@ const LandingMain = async () => {
       <div>
         <h1 className={styles.headerTitle}>Information</h1>
         <div className={styles.description}>
-          {aboutMeItems.map((item, index) => (
+          {aboutMeItems.map((item) => (
             <ProfileInfo
-              key={index}
+              key={item.id}
               title={item.title}
               description={item.description}
               iconImg={item.iconImg}
