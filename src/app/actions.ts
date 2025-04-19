@@ -21,7 +21,7 @@ export async function getProjects() {
   }
 }
 
-export async function getBlogs() {
+export async function getCategories() {
   try {
     // 모든 카테고리 가져오기
     const categories = await prisma.category.findMany({
@@ -29,7 +29,16 @@ export async function getBlogs() {
         id: "asc",
       },
     });
+    return categories;
+  } catch {
+  } finally {
+    await prisma.$disconnect();
+  }
+}
 
+// 카테고리랑 포스트랑 같이 불러와서그런가? ㅈㄴ느리네 ??
+export async function getBlogs() {
+  try {
     // 모든 포스트 가져오기 (카테고리 정보 포함)
     const posts = await prisma.post.findMany({
       include: {
@@ -47,7 +56,6 @@ export async function getBlogs() {
     }));
 
     return {
-      categories,
       posts: formattedPosts,
     };
   } catch (error) {
