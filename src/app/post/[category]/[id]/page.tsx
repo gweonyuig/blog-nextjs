@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./page.module.css";
-import { getBlogs } from "@/app/actions";
+import { getBlogs, getCategories } from "@/app/actions";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
 import "@/styles/markdown.css";
 
@@ -8,14 +8,15 @@ import "@/styles/markdown.css";
 const getPost = async (category: string, id: string) => {
   try {
     const blogData = await getBlogs();
+    const categories = await getCategories();
 
     // 데이터 구조 확인
-    if (!blogData.categories || !blogData.posts) {
+    if (!categories || !blogData.posts) {
       return null;
     }
 
     // categories 배열에서 일치하는 카테고리 찾기
-    const categoryObj = blogData.categories.find(
+    const categoryObj = categories.find(
       (cat) => cat.key && cat.key.toLowerCase() === category.toLowerCase()
     );
 
