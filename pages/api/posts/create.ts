@@ -1,8 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next"; // Next.js의 API 요청 및 응답 타입 가져오기
-import { PrismaClient } from "@prisma/client"; // Prisma ORM 클라이언트 가져오기
+// import { PrismaClient } from "@prisma/client"; // Prisma ORM 클라이언트 가져오기
+import prisma from "@/lib/prisma";
 
 // 새로운 Prisma 인스턴스 생성 방식
-const prisma = new PrismaClient(); // 데이터베이스 접근을 위한 Prisma 클라이언트 인스턴스 생성
+// const prisma = new PrismaClient(); // 데이터베이스 접근을 위한 Prisma 클라이언트 인스턴스 생성
 
 export default async function handler(
   req: NextApiRequest, // Next.js에서 제공하는 요청 객체
