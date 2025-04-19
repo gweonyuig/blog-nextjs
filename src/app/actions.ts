@@ -16,8 +16,6 @@ export async function getProjects() {
     return projects;
   } catch (error) {
     throw error;
-  } finally {
-    await prisma.$disconnect();
   }
 }
 
@@ -30,9 +28,8 @@ export async function getCategories() {
       },
     });
     return categories;
-  } catch {
-  } finally {
-    await prisma.$disconnect();
+  } catch (error) {
+    throw error;
   }
 }
 
@@ -60,8 +57,6 @@ export async function getBlogs() {
     };
   } catch (error) {
     throw error;
-  } finally {
-    await prisma.$disconnect();
   }
 }
 
@@ -76,7 +71,5 @@ export async function getAboutMe() {
     return aboutMeItems;
   } catch (error) {
     throw error;
-  } finally {
-    await prisma.$disconnect();
   }
 }
