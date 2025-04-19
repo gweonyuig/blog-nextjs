@@ -1,7 +1,8 @@
 "use client";
 import { useState, FormEvent } from "react";
 import { GetServerSideProps } from "next";
-import { PrismaClient } from "@prisma/client";
+// import { PrismaClient } from "@prisma/client";
+import prisma from "@/lib/prisma";
 import { useRouter } from "next/router";
 import styles from "./CreatePost.module.css";
 
@@ -155,7 +156,7 @@ export default function CreatePost({ categories }: CreatePostProps) {
 
 export const getServerSideProps: GetServerSideProps = async () => {
   // 서버 사이드에서 실행되는 데이터 페칭 함수 선언
-  const prisma = new PrismaClient(); // Prisma 데이터베이스 클라이언트 인스턴스 생성
+  // const prisma = new PrismaClient(); // Prisma 데이터베이스 클라이언트 인스턴스 생성
 
   try {
     const categories = await prisma.category.findMany(); // 데이터베이스에서 모든 카테고리 목록 조회
