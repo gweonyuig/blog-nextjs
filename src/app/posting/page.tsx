@@ -72,7 +72,7 @@ export default function PostingPage() {
       }
 
       router.push(`/blog/${data.slug}`);
-    } catch {
+    } catch (err) {
       setError(
         err instanceof Error
           ? err.message

@@ -16,8 +16,10 @@
   },
   "dependencies": {
     "@prisma/client": "^6.6.0",
+    "@types/highlight.js": "^9.12.4",
     "@vercel/postgres": "^0.10.0",
     "gray-matter": "^4.0.3",
+    "highlight.js": "^11.11.1",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.0",
     "next": "15.2.4",

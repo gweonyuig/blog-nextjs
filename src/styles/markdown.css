@@ -65,21 +65,22 @@
 .markdown code {
   padding: 0.2em 0.4em;
   margin: 0;
-  font-size: 85%;
-  background-color: rgba(27, 31, 35, 0.05);
+  font-size: 0.95em;
+  background-color: rgba(20, 19, 19, 0.05);
   border-radius: 3px;
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
 }
 
 .markdown pre {
   margin-top: 0;
-  margin-bottom: 1em;
-  padding: 1em;
+  /* margin-bottom: 1em;
+  padding: 1.5em; */
   overflow: auto;
-  font-size: 85%;
-  line-height: 1.45;
+  font-size: 0.95em;
+  line-height: 1.5;
   background-color: #f6f8fa;
-  border-radius: 3px;
+  border-radius: 6px;
+  border: 1px solid #e1e4e8;
 }
 
 .markdown table {
@@ -142,13 +143,14 @@
     border-left-color: #30363d;
   }
 
+  .markdown pre {
+    background-color: #161b22;
+    border-color: #30363d;
+  }
+
   .markdown code {
     background-color: transparent;
     color: #e1e4e8;
-  }
-
-  .markdown pre {
-    background-color: transparent;
   }
 
   .markdown table th,
