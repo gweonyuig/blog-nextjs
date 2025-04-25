@@ -1,4 +1,3 @@
-import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 
 export async function GET() {
@@ -9,11 +8,18 @@ export async function GET() {
       },
     });
 
-    return NextResponse.json(categories);
+    return new Response(JSON.stringify(categories), {
+      headers: { "Content-Type": "application/json" },
+    });
   } catch {
-    return NextResponse.json(
-      { error: "카테고리 목록을 가져오는 중 오류가 발생했습니다." },
-      { status: 500 }
+    return new Response(
+      JSON.stringify({
+        error: "Failed to fetch categories",
+      }),
+      {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+      }
     );
   }
 }

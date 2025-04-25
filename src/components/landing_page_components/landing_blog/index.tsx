@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./styles.module.css";
 import Link from "next/link";
-import { getBlogs, getCategories } from "@/app/actions";
 
 // Prisma 모델에 맞게 인터페이스 수정
 interface Category {
@@ -44,10 +43,11 @@ const LandingBlog = () => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const data = await getBlogs();
-        const categories = await getCategories();
+        const dataResponse = await fetch("/api/get_posts");
+        const categoryResponse = await fetch("/api/categories");
 
         // 카테고리 목록 설정
+        const categories = await categoryResponse.json();
         if (categories && categories.length > 0) {
           setCategories(categories);
 
@@ -55,7 +55,7 @@ const LandingBlog = () => {
           if (initialMount.current) {
             // 카테고리가 설정되지 않았거나 존재하지 않는 경우에만 첫 번째 카테고리로 설정
             const validCategory = categories.find(
-              (c) => c.key === initialCategory.current
+              (c: Category) => c.key === initialCategory.current
             );
             if (!validCategory && categories[0]) {
               setCategory(categories[0].key);
@@ -65,6 +65,7 @@ const LandingBlog = () => {
         }
 
         // 포스트 설정
+        const data = await dataResponse.json();
         if (data.posts) {
           setPosts(data.posts);
         }
