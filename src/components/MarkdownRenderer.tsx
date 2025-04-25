@@ -1,8 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import hljs from "highlight.js";
+import "highlight.js/styles/github-dark.css";
+import "@/styles/markdown.css";
 
 interface MarkdownRendererProps {
   content: string;
@@ -16,42 +19,47 @@ interface CodeProps {
   // React.HTMLAttributes<HTMLElement>를 사용하여 표준 HTML 속성 포함
 }
 
-const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => (
-  <div className="markdown-content">
-    <ReactMarkdown
-      remarkPlugins={[remarkGfm]}
-      components={{
-        // 코드 블록 커스터마이징
-        code: ({
-          inline,
-          className,
-          children,
-          ...props
-        }: CodeProps & React.HTMLAttributes<HTMLElement>) => {
-          const match = /language-(\w+)/.exec(className || "");
-          return !inline && match ? (
-            <pre className={`language-${match[1]}`}>
+const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
+  useEffect(() => {
+    hljs.highlightAll();
+  }, [content]);
+
+  return (
+    <div className="markdown">
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
+        components={{
+          code: ({
+            inline,
+            className,
+            children,
+            ...props
+          }: CodeProps & React.HTMLAttributes<HTMLElement>) => {
+            const match = /language-(\w+)/.exec(className || "");
+            return !inline && match ? (
+              <pre>
+                <code
+                  className={className}
+                  {...props}
+                >
+                  {children}
+                </code>
+              </pre>
+            ) : (
               <code
                 className={className}
                 {...props}
               >
                 {children}
               </code>
-            </pre>
-          ) : (
-            <code
-              className={className}
-              {...props}
-            >
-              {children}
-            </code>
-          );
-        },
-      }}
-    >
-      {content}
-    </ReactMarkdown>
-  </div>
-);
+            );
+          },
+        }}
+      >
+        {content}
+      </ReactMarkdown>
+    </div>
+  );
+};
 
 export default MarkdownRenderer;
