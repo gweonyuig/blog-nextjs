@@ -1,7 +1,5 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
-import fs from "fs";
-import path from "path";
 
 export async function POST(request: Request) {
   try {
@@ -26,27 +24,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // 마크다운 파일 생성
-    const slug = title
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/(^-|-$)/g, "");
-
     const date = new Date();
-    const frontmatter = `---
-title: "${title}"
-date: "${date.toISOString()}"
-category: "${category}"
-description: "${description}"
----
-
-`;
-
-    const markdownContent = frontmatter + content;
-    const filePath = path.join(process.cwd(), "src/posts", `${slug}.md`);
-
-    // 마크다운 파일 저장
-    fs.writeFileSync(filePath, markdownContent);
 
     // Prisma를 사용하여 데이터베이스에 저장
     const post = await prisma.post.create({

@@ -71,7 +71,7 @@ export default function PostingPage() {
         throw new Error(data.error || "포스트 생성 중 오류가 발생했습니다.");
       }
 
-      router.push(`/blog/${data.slug}`);
+      router.push("/");
     } catch (err) {
       setError(
         err instanceof Error
