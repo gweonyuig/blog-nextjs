@@ -17,6 +17,7 @@
   "dependencies": {
     "@prisma/client": "^6.6.0",
     "@types/highlight.js": "^9.12.4",
+    "@vercel/analytics": "^1.5.0",
     "@vercel/postgres": "^0.10.0",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.11.1",
