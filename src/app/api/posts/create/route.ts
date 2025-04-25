@@ -34,8 +34,7 @@ ${contents}
       { message: "포스트가 성공적으로 생성되었습니다", fileName },
       { status: 201 }
     );
-  } catch (error) {
-    console.error("Error creating post:", error);
+  } catch {
     return NextResponse.json(
       { message: "포스트 생성 중 오류가 발생했습니다" },
       { status: 500 }

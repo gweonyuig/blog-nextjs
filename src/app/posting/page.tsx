@@ -34,8 +34,7 @@ export default function PostingPage() {
         }
         const data = await response.json();
         setCategories(data);
-      } catch (err) {
-        console.error("Error fetching categories:", err);
+      } catch {
         setError("카테고리를 불러오는데 실패했습니다.");
       }
     };
@@ -73,8 +72,7 @@ export default function PostingPage() {
       }
 
       router.push(`/blog/${data.slug}`);
-    } catch (err) {
-      console.error("Error creating post:", err);
+    } catch {
       setError(
         err instanceof Error
           ? err.message

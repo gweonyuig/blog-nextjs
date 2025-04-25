@@ -3,6 +3,9 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+import "@/styles/markdown.css";
 
 interface MarkdownRendererProps {
   content: string;
@@ -17,7 +20,7 @@ interface CodeProps {
 }
 
 const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => (
-  <div className="markdown-content">
+  <div className="markdown">
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
       components={{
@@ -30,14 +33,14 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => (
         }: CodeProps & React.HTMLAttributes<HTMLElement>) => {
           const match = /language-(\w+)/.exec(className || "");
           return !inline && match ? (
-            <pre className={`language-${match[1]}`}>
-              <code
-                className={className}
-                {...props}
-              >
-                {children}
-              </code>
-            </pre>
+            <SyntaxHighlighter
+              style={vscDarkPlus}
+              language={match[1]}
+              PreTag="div"
+              {...props}
+            >
+              {String(children).replace(/\n$/, "")}
+            </SyntaxHighlighter>
           ) : (
             <code
               className={className}
