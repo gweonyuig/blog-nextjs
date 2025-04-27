@@ -120,4 +120,8 @@
   .items {
     padding: 10px 0;
   }
+  .categories {
+    gap: 15px;
+    font-size: 14px;
+  }
 }
