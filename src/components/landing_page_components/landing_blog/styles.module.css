@@ -17,6 +17,7 @@
   display: flex;
   padding: 25px 0;
   gap: 20px;
+  overflow-x: scroll;
 }
 .category {
   cursor: pointer;
@@ -119,5 +120,9 @@
   }
   .items {
     padding: 10px 0;
+  }
+  .categories {
+    gap: 15px;
+    font-size: 14px;
   }
 }
