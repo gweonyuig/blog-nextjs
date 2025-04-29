@@ -4,11 +4,12 @@ import LandingProject from "@/components/landing_page_components/landing_project
 import LandingBlog from "@/components/landing_page_components/landing_blog";
 
 export default function Home() {
+  const page: number = 5;
   return (
     <div className={styles.page}>
       <LandingInfo />
       <LandingProject />
-      <LandingBlog />
+      <LandingBlog page={page} />
     </div>
   );
 }
