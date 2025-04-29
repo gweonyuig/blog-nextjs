@@ -60,6 +60,28 @@ export async function getBlogs() {
   }
 }
 
+export async function getPost(id: number) {
+  try {
+    const post = await prisma.post.findUnique({
+      where: {
+        id,
+      },
+    });
+
+    // date 필드를 ISO 문자열로 변환
+    if (post && post.date) {
+      return {
+        ...post,
+        date: post.date.toISOString(),
+      };
+    }
+
+    return post;
+  } catch (error) {
+    throw error;
+  }
+}
+
 export async function getAboutMe() {
   try {
     const aboutMeItems = await prisma.aboutMeItem.findMany({
