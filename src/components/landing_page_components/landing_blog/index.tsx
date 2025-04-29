@@ -24,15 +24,18 @@ interface Post {
 
 // 카테고리 키 타입 정의
 type CategoryKey = string;
+type PageType = {
+  page: number;
+};
 
-const LandingBlog = () => {
+const LandingBlog = ({ page }: PageType) => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [posts, setPosts] = useState<Post[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [category, setCategory] = useState<CategoryKey>("react");
   // 페이지네이션을 위한 상태 추가
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5;
+  const itemsPerPage = page;
 
   // useRef를 사용하여 초기 마운트 상태 추적
   const initialMount = React.useRef(true);
@@ -116,7 +119,12 @@ const LandingBlog = () => {
 
   return (
     <div className={styles.main}>
-      <h1 className={styles.title}>Blog</h1>
+      <Link
+        href="/blog"
+        className={styles.link}
+      >
+        <h1 className={styles.title}>Blog</h1>
+      </Link>
       <div className={styles.container}>
         <div className={styles.categories}>
           {categories.map((cat) => (
