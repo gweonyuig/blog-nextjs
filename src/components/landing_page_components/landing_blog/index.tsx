@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./styles.module.css";
 import Link from "next/link";
+import Image from "next/image";
 
 // Prisma 모델에 맞게 인터페이스 수정
 interface Category {
@@ -141,7 +142,16 @@ const LandingBlog = ({ page }: PageType) => {
         </div>
         <div className={styles.items}>
           {isLoading ? (
-            <div className={styles.loading}>Loading blogs...</div>
+            <div className={styles.loading}>
+              <Image
+                className={styles.loadingImage}
+                src="/bualapha.png"
+                alt="Loading"
+                width={300}
+                height={100}
+              />
+              <p>Loading blogs...</p>
+            </div>
           ) : (
             <>
               {getCurrentItems().map((post) => (

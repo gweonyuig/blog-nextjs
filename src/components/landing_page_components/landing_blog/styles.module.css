@@ -89,6 +89,22 @@
   color: var(--page-button-color);
   cursor: pointer;
 }
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 45px;
+}
+.loading p {
+  font-size: 3.6rem;
+  color: var(--text-color);
+}
+.loadingImage {
+  border-radius: 1000000px;
+  border: 2px solid var(--primary-green);
+  height: auto;
+}
 
 /* Media Queries */
 @media screen and (max-width: 1200px) {
