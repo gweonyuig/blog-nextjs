@@ -50,6 +50,10 @@ model Post {
   categoryId  Int
   category    Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
 
+  // 프로젝트 관계
+  projectId   Int?
+  project     Project? @relation(fields: [projectId], references: [id], onDelete: SetNull)
+
   @@map("posts")
 }
 
@@ -61,6 +65,7 @@ model Project {
   description String?
   image       String  // 이미지 경로
   contents    String  @db.Text  // 긴 텍스트 내용을 위한 Text 타입
+  posts       Post[]  // Post 모델과의 관계 추가
 
   @@map("projects")
 }

@@ -12,14 +12,24 @@ interface Category {
   title: string;
 }
 
+interface Project {
+  id: number;
+  title: string;
+  description: string | null;
+  image: string;
+  contents: string;
+}
+
 export default function PostingPage() {
   const router = useRouter();
   const [categories, setCategories] = useState<Category[]>([]);
+  const [projects, setProjects] = useState<Project[]>([]);
   const [formData, setFormData] = useState({
     title: "",
     category: "",
     description: "",
     content: "",
+    projectId: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
@@ -39,7 +49,21 @@ export default function PostingPage() {
       }
     };
 
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch("/api/projects");
+        if (!response.ok) {
+          throw new Error("프로젝트를 불러오는데 실패했습니다.");
+        }
+        const data = await response.json();
+        setProjects(data);
+      } catch {
+        setError("프로젝트를 불러오는데 실패했습니다.");
+      }
+    };
+
     fetchCategories();
+    fetchProjects();
   }, []);
 
   const handleChange = (
@@ -57,12 +81,18 @@ export default function PostingPage() {
     setError("");
 
     try {
+      // 폼 데이터 정리
+      const submissionData = {
+        ...formData,
+        projectId: formData.projectId === "" ? null : formData.projectId,
+      };
+
       const response = await fetch("/api/posts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(submissionData),
       });
 
       const data = await response.json();
@@ -89,6 +119,7 @@ export default function PostingPage() {
       category: "",
       description: "",
       content: "",
+      projectId: "",
     });
     if (textareaRef.current) {
       textareaRef.current.focus();
@@ -143,6 +174,32 @@ export default function PostingPage() {
                 value={category.key}
               >
                 {category.title}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className={styles.formGroup}>
+          <label
+            htmlFor="projectId"
+            className={styles.label}
+          >
+            프로젝트
+          </label>
+          <select
+            id="projectId"
+            name="projectId"
+            value={formData.projectId}
+            onChange={handleChange}
+            className={styles.select}
+          >
+            <option value="">연결된 프로젝트 없음</option>
+            {projects.map((project) => (
+              <option
+                key={project.id}
+                value={project.id}
+              >
+                {project.title}
               </option>
             ))}
           </select>
