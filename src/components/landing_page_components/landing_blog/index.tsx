@@ -13,6 +13,15 @@ interface Category {
   posts?: Post[]; // Post[] 관계에 대응 - API 응답에 포함되지 않을 수 있으므로 선택적으로 변경
 }
 
+interface Project {
+  id: number;
+  title: string;
+  description: string | null;
+  image: string;
+  contents: string;
+  posts?: Post[];
+}
+
 interface Post {
   id: number; // Int @id @default(autoincrement()) 필드에 대응
   title: string; // String 필드에 대응
@@ -20,7 +29,9 @@ interface Post {
   date: string; // DateTime 필드가 문자열로 변환됨
   contents: string; // String @db.Text 필드에 대응
   categoryId: number; // Int 필드에 대응
+  projectId: number | null; // Project와의 관계를 위한 외래 키 (옵셔널)
   category: Category; // Category @relation 관계에 대응
+  project?: Project; // Project @relation 관계에 대응 (옵셔널)
 }
 
 // 카테고리 키 타입 정의
@@ -73,9 +84,7 @@ const LandingBlog = ({ page }: PageType) => {
         if (data.posts) {
           setPosts(data.posts);
         }
-      } catch (error) {
-        // console.error("블로그 데이터를 가져오는 중 오류 발생:", error);
-        throw error;
+      } catch {
       } finally {
         setIsLoading(false);
       }
