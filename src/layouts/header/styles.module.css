@@ -1,17 +1,40 @@
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 12px 24px;
+  padding: 16px 32px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  transition: all var(--transition-speed) ease;
 }
+
 .logo {
   display: flex;
   align-items: center;
   gap: 12px;
 }
+
 .logoImage {
   border-radius: 50%;
   border: 2px solid var(--primary-green);
+  transition: transform 0.3s ease;
 }
+
+.logo:hover .logoImage {
+  transform: rotate(10deg);
+}
+
 .logoText {
   color: var(--primary-green);
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.logo:hover .logoText {
+  color: var(--hover-background);
 }
